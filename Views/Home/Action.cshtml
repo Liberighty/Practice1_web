@@ -1,0 +1,61 @@
+﻿@model List<GodSimulator.Data.Update>
+
+@{
+    ViewData["Title"] = "Модерация";
+}
+
+<h4>Список обновлений симуляции</h4>
+<a href="/home/add"><button class="btn btn-primary">Новое обновление</button></a>
+
+
+<div class="row">
+     <div class="col-8">
+<table class="table">
+    <tr>
+        <th>Патч</th>
+        <th style="width: 50%;">Описание</th>
+        <th>Действия</th>
+        <th style="width: 5%;">Оценка общества</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Version</td>
+            <td style="white-space: pre-wrap; word-break: break-word;">@item.Description</td>
+            <td>
+                <a href="/home/Edit/@item.Id">Редактировать</a>
+                <a href="/home/Remove/@item.Id">Удалить</a>
+            </td>
+            <td>@item.SocietyOpinion</td>
+        </tr>
+    }
+</table>
+</div>
+    <div class="col-4">
+        <h4>Сообщения "пользователей"</h4>
+        <div id="feed" class="feed-container"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const feed = document.getElementById('feed');
+
+        async function fetchMessage() {
+            const response = await fetch('/home/InternetInsanity');
+            const data = await response.json();
+
+            const div = document.createElement('div');
+            div.className = 'feed-item';
+            div.textContent = data.post; 
+
+            feed.prepend(div);
+
+            while (feed.children.length > 20) {
+                feed.removeChild(feed.lastChild);
+            }
+        }
+
+        setInterval(fetchMessage, 1000);
+    </script>
+}

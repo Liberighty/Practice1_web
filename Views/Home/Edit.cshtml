@@ -1,0 +1,21 @@
+﻿@model GodSimulator.Data.Update
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+<h2 class="h2">Изменение</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="version" class="form-label">Версия</label>
+        <input type="text" name="version" class="form-control" id="version" value="@Model?.Version" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание</label>
+        <textarea name="description" class="form-control" id="description" rows="5" required>@Model?.Description</textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>

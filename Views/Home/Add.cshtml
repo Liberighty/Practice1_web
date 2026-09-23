@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Добавить обновление";
+}
+
+<h2 class="h2">Что Вы хотите изменить в этом мире?</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label for="version" class="form-label">Версия</label>
+        <input type="text" name="version" class="form-control" id="version">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Описание</label>
+        <textarea name="description" class="form-control" id="description" rows="5"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Создать</button>
+    <a href="/home/action" class="btn btn-danger">Отмена</a>
+</form>
