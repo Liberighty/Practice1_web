@@ -53,7 +53,7 @@ namespace GodSimulator.Controllers
                 query = query.Where(x => x.Description.Contains(description));
             }
 
-            var updates = query.ToList();
+            var updates = query.OrderByDescending(x => x.Id).ToList();
 
             return View(updates);
         }

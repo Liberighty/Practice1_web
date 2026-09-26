@@ -3,10 +3,22 @@
 @{
     ViewData["Title"] = "Модерация";
 }
-
+<div class="mb-3">
 <h4>Список обновлений симуляции</h4>
 <a href="/home/add"><button class="btn btn-primary">Новое обновление</button></a>
+</div>
+<h4>Поиск по обновлениям</h4>
 
+<form method="post" class="row row-cols-lg-auto g-3 align-items-center mt-1">
+<div class="col-12">
+    <input type="text" name="Version" class="form-control" id="exampleInputPassword1" placeholder="Поиск по версии">
+</div>
+<div>
+    <input type="text" name="Description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Поиск по описанию">
+</div>
+
+    <button type="submit" class="btn btn-primary">Поиск</button>
+</form>
 
 <div class="row">
      <div class="col-8">
@@ -29,7 +41,9 @@
             <td>@item.SocietyOpinion</td>
         </tr>
     }
+
 </table>
+
 </div>
     <div class="col-4">
         <h4>Сообщения "пользователей"</h4>
