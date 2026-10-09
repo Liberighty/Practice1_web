@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="../GodSimulatorAPI/GodSimulatorAPI.csproj" Id="550eacc9-6d4d-4993-8601-34f71fc68cd1" />
+  <Project Path="../GodSimulatorClientApp/GodSimulatorClientApp.csproj" Id="795e8f7a-cd5c-47db-883a-838d7115dd38" />
   <Project Path="GodSimulator.csproj" />
 </Solution>
